@@ -8,7 +8,6 @@ layout > container
 .l_container {
     width: unset;
     padding: 0 20px;
-
 }
 
 @media screen and (min-width: 768px) {
@@ -20,8 +19,15 @@ layout > container
 
     .l_container {
         max-width: $width-content;
-        padding: 0 40px;
+        padding: 0 20px;
         margin: 0 auto;
         @extend %_container;
+    }
+}
+
+.l_main {
+    @include mq(md) {
+        width: calc(1676 / 1920 * 100vw);
+        margin-left: auto;
     }
 }
