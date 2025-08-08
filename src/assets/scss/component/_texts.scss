@@ -4,3 +4,49 @@
 component > Texts
 ------------------------------
 */
+
+// 1️⃣ Định nghĩa font-size cho desktop và mobile
+$font-sizes: (
+    12: (desktop: rem(12), mobile: rem(11)),
+    14: (desktop: rem(14), mobile: rem(13)),
+    16: (desktop: rem(16), mobile: rem(15)),
+    17: (desktop: rem(17), mobile: rem(16)),
+    18: (desktop: rem(18), mobile: rem(17)),
+    19: (desktop: rem(19), mobile: rem(18)),
+    20: (desktop: rem(20), mobile: rem(18)),
+    22: (desktop: rem(22), mobile: rem(20)),
+    26: (desktop: rem(26), mobile: rem(22)),
+    28: (desktop: rem(28), mobile: rem(24)),
+    30: (desktop: rem(30), mobile: rem(26)),
+    34: (desktop: rem(34), mobile: rem(28)),
+    40: (desktop: rem(40), mobile: rem(32)),
+    44: (desktop: rem(44), mobile: rem(34)),
+    46: (desktop: rem(46), mobile: rem(36)),
+    48-73: (desktop: rem(48.73), mobile: rem(38)),
+    80: (desktop: rem(80), mobile: rem(56)),
+    84-36: (desktop: rem(84.36), mobile: rem(60)),
+    90: (desktop: rem(90), mobile: rem(64))
+);
+
+// 2️⃣ Breakpoint mobile
+$breakpoint-mobile: 768px;
+
+// 3️⃣ Generate class
+@each $key, $sizes in $font-sizes {
+    .u_fs_#{$key} {
+        font-size: map-get($sizes, desktop);
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: map-get($sizes, mobile);
+        }
+    }
+}
+
+
+.u_f_en {
+    font-family: var(--font-en);
+}
+
+.u_txt_italic {
+    font-style: italic;
+}

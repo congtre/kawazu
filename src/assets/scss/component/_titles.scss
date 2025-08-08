@@ -1,7 +1,56 @@
 @use "sass:math";
-@use "../global"as *;
+@use "../global" as *;
 
 /*!
 component > title
 ------------------------------
 */
+.c_page_heading {
+    text-align: center;
+
+    &__subja {
+        @extend %fz-28;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        font-feature-settings: "palt";
+    }
+
+    &__mttl {
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        font-feature-settings: "palt";
+        line-height: 1.5;
+
+        @include mq(md) {
+            font-size: rem(44);
+        }
+    }
+
+    &__suben {
+        @extend %fz-14;
+        letter-spacing: 0.09em;
+        font-family: var(--font-en);
+        font-style: italic;
+        margin-top: 6px;
+
+        @include mq(md) {}
+    }
+}
+
+.c_heading01 {
+    &>* {
+        @include mq(md) {
+            display: inline-block;
+        }
+    }
+
+    &__numb,
+    &__mttl {
+        font-weight: 700;
+    }
+
+
+    &__en {
+        font-weight: 300;
+    }
+}

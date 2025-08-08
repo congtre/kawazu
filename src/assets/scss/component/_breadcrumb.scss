@@ -7,51 +7,17 @@ component >   BREAD CRUMB
 */
 
 .c_breadcrumb {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    width: calc(100% - 40px);
-    padding-top: 5px;
+    display: none;
 
     @include mq(md) {
-        padding-top: 10px;
+        display: block;
+        text-align: right;
+        margin-top: 38px;
     }
 
-    &__in {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 3px;
-    }
-
-    &__item {
-        min-width: fit-content;
-        font-family: var(--base-font-gothic);
-        color: #76706A;
-
-        &:not(:last-child) {
-            &::after {
-                content: '＞';
-                display: inline-block;
-                font-weight: 400;
-                letter-spacing: 0.05em;
-                font-size: rem(10);
-
-                @include mq(md) {
-                    font-size: rem(12);
-                }
-            }
-        }
-    }
-
-    &__text {
-        color: #76706A;
-        font-family: var(--base-font-gothic);
-        font-weight: 400;
-        letter-spacing: 0.05em;
-        font-size: rem(10);
-
-        @include mq(md) {
-            font-size: rem(12);
-        }
+    span {
+        font-feature-settings: "palt";
+        letter-spacing: 0.085em;
+        font-size: rem(16);
     }
 }

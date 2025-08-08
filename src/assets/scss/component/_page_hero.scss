@@ -1,0 +1,59 @@
+@use "sass:math";
+@use "../global" as *;
+
+/*!
+component > Page Hero Banner
+------------------------------
+*/
+
+.c_page_hero {
+    position: relative;
+
+    @include mq(md) {
+        min-height: calc(316 / 1920 * 100vw);
+        padding-top: 40px;
+        padding-bottom: 50px;
+        border-radius: 20px 0 0 0;
+        overflow: hidden;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: multiply;
+            opacity: 0.45;
+        }
+
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgb(77, 190, 224) 0%, rgb(44, 147, 199) 49%, rgb(10, 103, 173) 100%);
+        }
+    }
+
+
+    &__content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mq(md) {
+            min-height: calc(316 / 1920 * 100vw);
+        }
+    }
+
+}
