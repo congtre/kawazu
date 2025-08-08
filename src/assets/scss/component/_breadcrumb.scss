@@ -1,0 +1,57 @@
+@use "sass:math";
+@use "../global" as *;
+
+/*!
+component >   BREAD CRUMB
+------------------------------
+*/
+
+.c_breadcrumb {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 40px);
+    padding-top: 5px;
+
+    @include mq(md) {
+        padding-top: 10px;
+    }
+
+    &__in {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+    &__item {
+        min-width: fit-content;
+        font-family: var(--base-font-gothic);
+        color: #76706A;
+
+        &:not(:last-child) {
+            &::after {
+                content: '＞';
+                display: inline-block;
+                font-weight: 400;
+                letter-spacing: 0.05em;
+                font-size: rem(10);
+
+                @include mq(md) {
+                    font-size: rem(12);
+                }
+            }
+        }
+    }
+
+    &__text {
+        color: #76706A;
+        font-family: var(--base-font-gothic);
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        font-size: rem(10);
+
+        @include mq(md) {
+            font-size: rem(12);
+        }
+    }
+}

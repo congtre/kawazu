@@ -1,0 +1,192 @@
+@use 'sass:math';
+@use '../global' as *;
+
+.c_pagination {
+    .wp-pagenavi {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a,
+    span {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid #76706A !important;
+        background-color: #fff;
+        color: #76706A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem(12);
+        letter-spacing: 0.05em;
+        margin: 5px !important;
+        font-weight: 500;
+
+        @include mq(md) {
+            font-size: rem(14);
+            width: 45px;
+            height: 45px;
+        }
+
+        &.current {
+            background-color: #76706A;
+            color: #fff;
+            pointer-events: none;
+            font-weight: 500 !important;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            @include mq(md) {
+                background-color: #76706A;
+                color: #fff;
+            }
+        }
+    }
+
+    .first,
+    .last,
+    .pages {
+        width: 30px;
+        height: 30px;
+        border: 1px solid transparent !important;
+        background-color: #E2E6E8;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem(16);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        margin: 8px !important;
+        background-color: #76706A;
+        font-weight: 500 !important;
+
+        @include mq(md) {
+            padding-top: 2px;
+            font-size: rem(18);
+            width: 40px;
+            height: 40px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .last {
+        font-size: 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            background-image: url('../images/common/icon_double_arrow.svg');
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include mq(md) {
+                background-size: 13px 10px;
+                width: 13px;
+                height: 10px;
+            }
+        }
+    }
+
+    .pages {
+        margin-right: 7px !important;
+        min-width: 56px;
+        font-weight: 500;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .nextpostslink {
+        color: transparent;
+        position: relative;
+        z-index: 1;
+        font-size: 0;
+        margin-left: 25px !important;
+
+        @include mq(md) {
+            margin-left: 25px !important;
+        }
+
+        &::after {
+            content: "";
+            width: 5px;
+            height: 12.5px;
+            mask-image: url('../images/common/icon_arrow_no_border.svg');
+            mask-size: 5px 12.5px;
+            background-color: #76706A;
+            transition: background-color 0.5s ease-in-out;
+            position: absolute;
+            z-index: 2;
+
+            @include mq(md) {
+                width: 7.5px;
+                height: 15px;
+                mask-size: 7.5px 15px;
+            }
+        }
+
+        &:hover {
+            @include mq(md) {
+                &::after {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
+    .previouspostslink {
+        color: transparent;
+        position: relative;
+        z-index: 1;
+        font-size: 0;
+        margin-right: 15px !important;
+
+        @include mq(md) {
+            margin-right: 25px !important;
+        }
+
+        &::after {
+            content: "";
+            width: 5px;
+            height: 12.5px;
+            mask-image: url('../images/common/icon_arrow_no_border.svg');
+            mask-size: 5px 12.5px;
+            background-color: #76706A;
+            transition: background-color 0.5s ease-in-out;
+            transform: scale(-1);
+            position: absolute;
+            z-index: 2;
+
+            @include mq(md) {
+                width: 7.5px;
+                height: 15px;
+                mask-size: 7.5px 15px;
+            }
+        }
+
+        &:hover {
+            @include mq(md) {
+                &::after {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
+    .larger+.extend:last-of-type {
+        display: none;
+    }
+}

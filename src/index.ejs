@@ -1,0 +1,29 @@
+---
+layout: _default
+title: 
+description: 
+keyword: 
+vendercss: ['aos/aos','slick/slick']
+venderjs: ['aos/aos','slick/slick.min']
+css: ['common','top']
+js: ['common']
+page: top
+---
+<script>
+    if (!window.sessionStorage.getItem("storage_loadding")) {
+        document.documentElement.classList.add("is_loadding");    
+        window.sessionStorage.setItem("storage_loadding", new Date().getTime().toString());    
+    }
+</script>
+<main class="p_top">   
+    <div class="c_loading">
+        <div class="c_loading__inner">
+            <div class="c_loading__content">
+                <div class="c_loading__item"></div>
+                <div class="c_loading__item"></div>
+            </div>
+        </div>
+    </div>    
+
+
+</main>
