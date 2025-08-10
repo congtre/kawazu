@@ -5,3 +5,36 @@
 component > List
 ------------------------------
 */
+.c_txt_list {
+    &__item {
+        @extend %fz-18;
+        letter-spacing: 0.08em;
+        position: relative;
+        font-feature-settings: "palt";
+
+        @include mq(md) {
+            line-height: calc(30 / 18);
+            padding-left: 30px;
+
+            &+.c_txt_list__item {
+                margin-top: 14px;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(to right, #4dbee0 20%, #aad96b);
+            left: 0;
+
+            @include mq(md) {
+                width: 7px;
+                height: 7px;
+                top: 12px;
+                left: 12px;
+            }
+        }
+    }
+}

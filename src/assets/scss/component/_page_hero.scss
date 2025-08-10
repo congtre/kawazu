@@ -8,6 +8,8 @@ component > Page Hero Banner
 
 .c_page_hero {
     position: relative;
+    min-height: calc(300 / 750 * 100vw);
+    padding-block: 20px;
 
     @include mq(md) {
         min-height: calc(316 / 1920 * 100vw);
@@ -29,7 +31,8 @@ component > Page Hero Banner
             height: 100%;
             object-fit: cover;
             mix-blend-mode: multiply;
-            opacity: 0.45;
+            // opacity: 0.45;
+            position: relative;
         }
 
 
@@ -50,9 +53,10 @@ component > Page Hero Banner
         display: flex;
         align-items: center;
         justify-content: center;
+        min-height: calc(220 / 750 * 100vw);
 
         @include mq(md) {
-            min-height: calc(316 / 1920 * 100vw);
+            min-height: calc(226 / 1920 * 100vw);
         }
     }
 

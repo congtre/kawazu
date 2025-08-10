@@ -32,6 +32,7 @@ component > btn
         border-radius: 60px;
         border: 3px solid #fff;
     }
+
     &::before {
         position: absolute;
         top: 50%;
@@ -42,11 +43,13 @@ component > btn
         background: #fff;
         transform: translateY(-50%) rotate(-45deg);
         pointer-events: none;
+
         @include mq(md) {
             left: 15px;
             width: 15px;
         }
     }
+
     &::after {
         position: absolute;
         top: 50%;
@@ -57,6 +60,7 @@ component > btn
         transform: translateY(-50%) rotate(45deg);
         pointer-events: none;
         background: #fff;
+
         @include mq(md) {
             right: 15px;
             width: 15px;
@@ -65,5 +69,81 @@ component > btn
 
     &:hover {
         transform: translateY(-20px) !important;
+    }
+}
+
+
+.c_btn {
+    display: inline-block;
+    background-color: #fff;
+
+    &:hover {
+        opacity: 1;
+
+        span {
+            opacity: 0.8;
+        }
+    }
+
+    span {
+        font-size: rem(14);
+        letter-spacing: 0.08em;
+        font-feature-settings: "palt";
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        transition: opacity 0.5s ease;
+
+        @include mq(md) {
+            font-size: rem(18);
+            line-height: calc(24 / 18);
+        }
+    }
+
+    &.c_btn01 {
+        span {
+            gap: 10px;
+
+            &::after {
+                content: '';
+                display: inline-block;
+                width: 19px;
+                height: 19px;
+                background-image: url('../images/common/icon_circle_arrow02.png');
+                background-size: contain;
+                background-position: center;
+            }
+        }
+    }
+
+
+    &.c_btn02 {
+        span {
+            color: #fff;
+            font-weight: 700;
+            background: linear-gradient(to right, rgb(77, 190, 224) 0%, rgb(44, 147, 199) 49%, rgb(10, 103, 173) 100%);
+            padding-inline: 15px;
+            padding-block: 13px;
+            font-feature-settings: "palt" 0;
+            gap: 15px;
+
+            &::after {
+                content: '';
+                width: 19px;
+                height: 19px;
+                background-image: url('../images/common/icon_circle_arrow03.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+}
+
+.c_btn_groups {
+    margin-inline: -3px;
+
+    &>.c_btn {
+        margin-inline: 3px;
     }
 }
