@@ -118,17 +118,30 @@ component > btn
 
 
     &.c_btn02 {
+        position: relative;
+        display: block;
+
         span {
             color: #fff;
             font-weight: 700;
             background: linear-gradient(to right, rgb(77, 190, 224) 0%, rgb(44, 147, 199) 49%, rgb(10, 103, 173) 100%);
-            padding-inline: 15px;
+            padding-left: 15px;
             padding-block: 13px;
             font-feature-settings: "palt" 0;
             gap: 15px;
+            display: flex;
+
+            @include mq(md) {
+                padding-left: 15px;
+                padding-right: 50px;
+            }
 
             &::after {
                 content: '';
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 19px;
                 height: 19px;
                 background-image: url('../images/common/icon_circle_arrow03.png');
