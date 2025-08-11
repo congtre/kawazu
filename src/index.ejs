@@ -1,21 +1,21 @@
 ---
 layout: _default
-title: 
-description: 
-keyword: 
-vendercss: ['aos/aos','slick/slick']
-venderjs: ['aos/aos','slick/slick.min']
+title:
+description:
+keyword:
+vendercss: ['aos/aos','swiper/swiper']
+venderjs: ['aos/aos','swiper/swiper']
 css: ['common','top']
 js: ['common']
 page: top
 ---
 <script>
     if (!window.sessionStorage.getItem("storage_loadding")) {
-        document.documentElement.classList.add("is_loadding");    
-        window.sessionStorage.setItem("storage_loadding", new Date().getTime().toString());    
+        document.documentElement.classList.add("is_loadding");
+        window.sessionStorage.setItem("storage_loadding", new Date().getTime().toString());
     }
 </script>
-<main class="p_top">   
+<main class="p_top">
     <div class="c_loading">
         <div class="c_loading__inner">
             <div class="c_loading__content">
@@ -23,7 +23,112 @@ page: top
                 <div class="c_loading__item"></div>
             </div>
         </div>
-    </div>    
+    </div>
 
+    <section class="p_top_kv">
+        <div class="p_top_kv__bg">
+            <picture class="p_top_kv__bg_img">
+                <img src="./assets/images/top/img_fv.jpg" alt="">
+            </picture>
+        </div>
+        <div class="p_top_kv__content">
+            <h2 class="p_top_kv__ttl">
+                <p>確かな<span class="blue">技術</span><span class="smtxt">と</span><span class="blue">安全・確実</span><span class="smtxt">な</span><span class="blue">運搬処理</span><span class="smtxt">で</span></p>
+                <p><span class="blue">産業廃棄物処理</span><span class="smtxt">を</span>サポート</p>
+            </h2>
 
+            <figure class="p_top_kv__catch">
+                <img src="./assets/images/a.png" alt="">
+            </figure>
+        </div>
+    </section>
+
+    <section class="p_top_news">
+        <div class="l_container">
+            <div class="p_top_news__head">
+                <h2 class="p_top_news__ttl">
+                    <span class="ja">新着情報</span>
+                    <span class="en">News Information</span>
+                </h2>
+
+                <div class="p_top_news__more">
+                    <a href="" class="c_btn c_btn01 p_top_news__more_target"><span>記事一覧へ</span></a>
+                </div>
+            </div>
+
+            <div class="p_top_news__body">
+                <ul class="p_top_news__list">
+                    <li class="p_top_news__list_item">
+                        <a href="" class="c_card_news">
+                            <span class="c_card_news__tag type01">お知らせ</span>
+                            <span class="c_card_news__date">0000.00.00</span>
+                            <h3 class="c_card_news__ttl"><span>ホームページをリニューアルいたしました。</span></h3>
+                        </a>
+                    </li>
+                    <li class="p_top_news__list_item">
+                        <a href="" class="c_card_news">
+                            <span class="c_card_news__tag type01">お知らせ</span>
+                            <span class="c_card_news__date">0000.00.00</span>
+                            <h3 class="c_card_news__ttl"><span>新車として新たにトレーラーヘッドを導入いたしました。 </span></h3>
+                        </a>
+                    </li>
+                    <li class="p_top_news__list_item">
+                        <a href="" class="c_card_news">
+                            <span class="c_card_news__tag type02">ブログ</span>
+                            <span class="c_card_news__date">0000.00.00</span>
+                            <h3 class="c_card_news__ttl"><span>お祝いに沢山の胡蝶蘭を頂戴しました。ありがとうございました。</span></h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="p_top_service">
+        <div class="p_top_service__in">
+            <div class="p_top_service__head">
+                <picture class="p_top_service__head_bg">
+                    <img src="./assets/images/top/img_service_head_bg.jpg" alt="">
+                </picture>
+
+                <div class="l_container p_top_service__head_content">
+                    <h2 class="p_top_service__ttl">
+                        <span class="en u_txt_italic_skew">Service</span>
+                        <span class="ja">事業内容</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="p_top_service_box">
+                <div class="p_top_service_box__in l_container">
+                    <figure>
+                        <img src="./assets/images/top/img_service_thumb01.png" alt="">
+                    </figure>
+
+                    <div class="p_top_service_box__content">
+                        <div class="c_heading_h2">
+                            <span class="u_fs_40 u_f_en c_heading_h2__numb">01</span>
+                            <h2 class="u_fs_40 c_heading_h2__mttl">産業廃棄物運搬サービス</h2>
+                            <span class="u_f_en c_heading_h2__en">Service Information</span>
+                        </div>
+                        <h3 class="c_heading_h3">西日本を中心に計27都府県の収集運搬許可を取得、<br>引き取り・運搬・処分などワンストップで請け負います</h3>
+                        <p class="c_txt_base p_top_service__text">
+                            河津産業では、産廃に特化した専用車で、荷物に応じて適切で安全な輸送サービスを提供しており、産業廃棄物・特別管理産業廃棄物の引き取り・運搬・処理・処分まで、一括してワンストップでの請け負いが可能です。<br>
+                            協力会社との広いネットワークがあるからこそ、産業廃棄物に関してお困りのことがあれば、まずはお気軽にご相談ください。他社との連携で解決策をご提案し、お客様の課題を解決いたします。
+                        </p>
+                        <div class="p_top_service__btn">
+                            <div class="c_btn_groups">
+                                <a class="c_btn02 c_btn">
+                                    <span>運搬サービスについて</span>
+                                </a>
+                                <a class="c_btn02 c_btn">
+                                    <span>河津産業3つの特徴</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

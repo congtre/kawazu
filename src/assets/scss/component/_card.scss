@@ -17,7 +17,6 @@ component > card
 }
 
 .c_card {
-
     &__thumb {
         padding-top: calc((280 / 394) * 100%);
         background-color: #b3b3b3;
@@ -66,6 +65,61 @@ component > card
         @include mq(md) {
             margin-top: 15px;
             line-height: calc(28 / 18);
+        }
+    }
+}
+
+.c_card_news {
+    display: flex;
+    align-items: center;
+    padding-block: 11px;
+    gap: 25px;
+
+    &__tag {
+        font-size: rem(10);
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mq(md) {
+            font-size: rem(16);
+            min-width: 144px;
+            height: 31px;
+        }
+
+        &.type01 {
+            background: linear-gradient(to right, rgb(77, 190, 224) 0%, rgb(44, 147, 199) 49%, rgb(10, 103, 173) 100%);
+        }
+
+        &.type02 {
+            background: linear-gradient(to right, rgb(139, 200, 63) 0%, rgb(179, 238, 110) 0%, rgb(160, 219, 85) 49%, rgb(140, 200, 60) 100%);
+        }
+    }
+
+    &__date {
+        font-size: rem(12);
+        letter-spacing: 0.08em;
+        min-width: 95px;
+
+        @include mq(md) {
+            font-size: rem(16);
+        }
+    }
+
+    &__ttl {
+        @extend %fz-18;
+        letter-spacing: 0.08em;
+
+        span {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
         }
     }
 }

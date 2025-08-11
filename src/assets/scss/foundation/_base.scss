@@ -1,9 +1,14 @@
-@use "../global"as *;
+@use "../global" as *;
 
 /*!
 foundation > base
 ------------------------------
 */
+html {
+    scrollbar-color: #064e90 #eee;
+    scrollbar-width: thin;
+}
+
 body {
     line-height: 2;
     font-size: rem(14);
@@ -11,7 +16,8 @@ body {
     color: #555;
     font-family: var(--base-font-gothic);
     letter-spacing: 0.05em;
-    line-height: calc( 32 / 16 );
+    line-height: calc(32 / 16);
+
     @include mq(md) {
         font-size: rem(16);
     }
@@ -41,11 +47,17 @@ a {
 
     &:hover {
         opacity: 1;
+
         @include mq(md) {
             opacity: 0.8;
         }
     }
-    
+
+    @include mq(md) {
+        &[href^="tel:"] {
+            pointer-events: none;
+        }
+    }
 }
 
 .pc {
@@ -63,4 +75,8 @@ a {
     @include mq(md) {
         display: none !important;
     }
+}
+
+.u_inline_block {
+    display: inline-block;
 }

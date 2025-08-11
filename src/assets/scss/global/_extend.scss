@@ -376,6 +376,14 @@
     }
 }
 
+%fz-80 {
+    font-size: rem(42);
+
+    @include mq("md") {
+        font-size: rem(80);
+    }
+}
+
 %fz-110 {
     font-size: rem(30);
 
