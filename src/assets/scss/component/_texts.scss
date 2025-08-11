@@ -30,7 +30,7 @@ $font-sizes: (
 );
 
 // 2️⃣ Breakpoint mobile
-$breakpoint-mobile: 767px;
+$breakpoint-mobile: 768px;
 
 // 3️⃣ Generate class
 @each $key, $sizes in $font-sizes {
