@@ -1,7 +1,423 @@
 @use "sass:math";
-@use "../global"as *;
+@use "../global" as *;
 
 /*!
 component > footer
 ------------------------------
 */
+
+.c_contact {
+    position: relative;
+
+    @include mq(md) {
+        padding-top: 22px;
+        padding-bottom: 50px;
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top left;
+        }
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+
+        @include mq(md) {
+            padding-right: 10px;
+            padding-left: 15px;
+        }
+    }
+
+    &__catch {
+        color: #fff;
+        display: grid;
+
+        @include mq(md) {
+            margin-top: 7px;
+        }
+
+        .title {
+            @extend %fz-18;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            line-height: 1;
+        }
+
+        .time {
+            @extend %fz-16;
+            letter-spacing: 0.06em;
+            line-height: 1;
+            font-feature-settings: "palt";
+
+            @include mq(md) {
+                margin-top: 8px;
+            }
+        }
+    }
+
+    &__tel {
+        font-weight: 500;
+        transform: skewX(-10deg);
+        font-family: var(--font-en);
+        letter-spacing: 0.06em;
+        color: #fff;
+
+        @include mq(md) {
+            font-size: rem(46);
+            margin-left: 23px;
+        }
+    }
+
+    &__link {
+        background: linear-gradient(to right, rgb(139, 200, 63) 0%, rgb(232, 255, 174) 0%, rgb(210, 247, 119) 49%, rgb(188, 238, 64) 100%);
+        display: flex;
+        position: relative;
+
+        @include mq(md) {
+            width: 535px;
+            padding-left: 20px;
+            padding-right: 55px;
+            padding-block: 13px;
+            gap: 17px;
+            align-items: center;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 25px;
+            width: 19px;
+            height: 19px;
+            background-image: url('../images/common/icon_circle_arrow01.png');
+            background-size: contain;
+            background-position: center;
+        }
+
+        &_icon {
+            flex-shrink: 0;
+
+            @include mq(md) {
+                width: 35px;
+            }
+        }
+
+        &_text {
+            font-weight: 700;
+            color: #0a67ad;
+            letter-spacing: 0.06em;
+            font-feature-settings: "palt";
+
+            @include mq(md) {
+                font-size: rem(22);
+            }
+
+            span {
+                @extend %fz-18;
+            }
+        }
+    }
+}
+
+.c_childs {
+    @include mq(md) {
+        padding-top: 95px;
+    }
+
+    &__logo {
+        display: flex;
+
+        @include mq(md) {
+            margin-top: 6px;
+            column-gap: clamped(10, 32, 768, 1100);
+        }
+    }
+
+    &__logo_link {
+        @include mq(md) {
+            width: calc(274 / 1210 * 100%);
+            max-width: 314px;
+            min-width: clamped(150, 250, 768, 1100);
+        }
+    }
+
+    &__logo_des {
+        @extend %fz-16;
+        color: #064e90;
+        letter-spacing: 0.04em;
+        line-height: 1.5;
+    }
+
+    &__list {
+        @include mq(md) {
+            padding-top: 51px;
+        }
+    }
+
+    &__item {
+        display: flex;
+
+        @include mq(md) {
+            column-gap: 15px;
+        }
+
+        .ttl {
+            @extend %fz-18;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: #064e90;
+            letter-spacing: 0.08em;
+            font-feature-settings: "palt";
+
+            @include mq(md) {
+                width: 128px;
+                padding-left: 2px;
+            }
+        }
+
+        .content {
+            @extend %fz-16;
+            display: flex;
+            letter-spacing: 0.06em;
+            font-feature-settings: "palt";
+
+            @include mq(md) {
+                padding-top: 2px;
+                flex: 1;
+                flex-wrap: wrap;
+                column-gap: 6px;
+            }
+        }
+
+        .addr {
+            position: relative;
+
+            @include mq(md) {
+                min-width: 463px;
+                padding-right: 70px;
+            }
+        }
+
+        .link {
+            position: absolute;
+            right: 13px;
+
+            a {
+                color: #0a67ad;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+    }
+}
+
+.c_footer {
+    @include mq(md) {
+        margin-top: 92px;
+    }
+
+    &__main {
+        background: #f3f3f3;
+    }
+
+    &__in {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+
+        @include mq(md) {
+            padding-top: 83px;
+            padding-bottom: 80px;
+        }
+    }
+
+    &__box {
+        display: flex;
+
+        @include mq(md) {
+            flex: 1;
+            min-width: clamped(570, 620, 768, 1024);
+        }
+    }
+
+    &__links {
+        &:first-child {
+            @include mq(md) {
+                margin-right: clamped(15, 37, 1024, 1650);
+            }
+        }
+
+        &:nth-child(2) {
+            @include mq(md) {
+                margin-right: clamped(15, 52, 1024, 1650);
+            }
+        }
+    }
+
+    &__link {
+        @extend %fz-16;
+        letter-spacing: 0.12em;
+        font-feature-settings: "palt";
+
+        @include mq(md) {
+            padding-left: 2px;
+        }
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 9px;
+            background: url('../images/common/icon_arrow01.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 5px;
+            margin-bottom: 2px;
+        }
+
+        &+.c_footer__link {
+            @include mq(md) {
+                margin-top: 8px;
+            }
+        }
+    }
+
+    &__banner {
+        @include mq(md) {
+            width: calc(408 / 1210 * 100%);
+        }
+
+        img {
+            @include mq(md) {
+                border-radius: 20px 0 20px 0;
+            }
+        }
+    }
+}
+
+.c_car_list {
+    @include mq(md) {
+        margin-right: clamped(15, 42, 1024, 1650);
+    }
+
+    .c_footer {
+        &__links {
+            @include mq(md) {
+                margin-top: 6px;
+                margin-right: 0;
+            }
+        }
+
+        &__link {
+            padding: 0;
+
+            &+.c_footer__link {
+                @include mq(md) {
+                    margin-top: 0;
+                }
+            }
+
+            &::before {
+                content: '-';
+                background: unset;
+            }
+        }
+    }
+}
+
+.c_sns {
+    &__link01 {
+        @extend %fz-16;
+        font-weight: 700;
+        color: #0a67ad;
+        letter-spacing: 0.12em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-feature-settings: "palt";
+
+        &::before {
+            content: '';
+            width: 19px;
+            height: 19px;
+            background: url('../images/common/icon_blank.png');
+            background-size: 100% 100%;
+        }
+    }
+
+    &__link02 {
+        @extend %fz-16;
+        color: #555555;
+        letter-spacing: 0.12em;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-feature-settings: "palt";
+
+        @include mq(md) {
+            margin-top: 7px;
+        }
+
+        &::before {
+            content: '';
+            width: 22px;
+            height: 22px;
+            background: url('../images/common/icon_ig02.png');
+            background-size: 100% 100%;
+        }
+    }
+
+    &__box02 {
+        display: flex;
+
+        @include mq(md) {
+            margin-top: clamped(85, 95, 768, 1024);
+            gap: 16px;
+        }
+
+        a {
+            &:first-child {
+                width: 48px;
+            }
+
+            &:nth-child(2) {
+                width: 65px;
+            }
+        }
+    }
+}
+
+.c_copyright {
+    background: linear-gradient(to right, rgb(77, 190, 224) 0%, rgb(44, 147, 199) 49%, rgb(10, 103, 173) 100%);
+
+    @include mq(md) {
+        padding-block: 16px;
+    }
+
+    p {
+        letter-spacing: 0.08em;
+        font-size: rem(12);
+        text-align: center;
+        color: #fff;
+    }
+}
