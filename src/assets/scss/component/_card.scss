@@ -21,9 +21,19 @@ component > card
         padding-top: calc((280 / 394) * 100%);
         background-color: #b3b3b3;
         overflow: hidden;
+        position: relative;
 
         @include mq(md) {
             border-radius: 20px 0 20px 0;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
