@@ -72,7 +72,6 @@ component > btn
     }
 }
 
-
 .c_btn {
     display: inline-block;
     background-color: #fff;
@@ -107,11 +106,16 @@ component > btn
             &::after {
                 content: '';
                 display: inline-block;
-                width: 19px;
-                height: 19px;
+                width: calc(33px / 2);
+                height: calc(33px / 2);
                 background-image: url('../images/common/icon_circle_arrow02.png');
                 background-size: contain;
                 background-position: center;
+
+                @include mq(md) {
+                    width: 19px;
+                    height: 19px;
+                }
             }
         }
     }
@@ -125,29 +129,39 @@ component > btn
             color: #fff;
             font-weight: 700;
             background: linear-gradient(to right, rgb(77, 190, 224) 0%, rgb(44, 147, 199) 49%, rgb(10, 103, 173) 100%);
-            padding-left: 15px;
-            padding-block: 13px;
+            padding-left: 35px;
+            padding-block: 8px;
+            padding-right: 30px;
             font-feature-settings: "palt" 0;
             gap: 15px;
             display: flex;
+            justify-content: center;
 
             @include mq(md) {
+                justify-content: flex-start;
                 padding-left: 15px;
                 padding-right: 50px;
+                padding-block: 13px;
             }
 
             &::after {
                 content: '';
                 position: absolute;
-                right: 15px;
+                right: 10px;
                 top: 50%;
                 transform: translateY(-50%);
-                width: 19px;
-                height: 19px;
+                width: 16px;
+                height: 16px;
                 background-image: url('../images/common/icon_circle_arrow03.png');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
+
+                @include mq(md) {
+                    right: 15px;
+                    width: 19px;
+                    height: 19px;
+                }
             }
         }
     }

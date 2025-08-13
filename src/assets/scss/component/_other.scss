@@ -264,6 +264,8 @@ component > Other
 }
 
 .c_img_round {
+    border-radius: 10px 0 10px 0;
+
     @include mq(md) {
         border-radius: 20px 0 20px 0;
     }

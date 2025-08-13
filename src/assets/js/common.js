@@ -1,27 +1,18 @@
-let scroll_pos1 = 0;
-function addFixedBodyModal() {
-    scroll_pos1 = $(window).scrollTop();
-    $('body')
-        .addClass('overflow_modal')
-        .css({ top: -scroll_pos1 + 'px' });
-}
-function removeFixedBodyModal() {
-    $('body').removeClass('overflow_modal').css({ top: '' });
-    $(window).scrollTop(scroll_pos1);
-}
 $(window).bind("load", function () {
     setTimeout(() => {
-        $('html').removeClass('is_loadding')
+        $("html").removeClass("is_loadding");
     }, 2000);
 
     AOS.init({
         duration: 1000,
         once: true,
-    });   
-
-
+    });
 });
 $(document).ready(function () {
+    const hambugerButton = $(".js_toggle");
+    const spBreakPoint = 1023;
+    let drawerFlag = "close";
+
     $('a[href^="#"]').click(function () {
         const p = $($(this).attr("href")).offset();
         if ($(window).width() > 767) {
@@ -54,57 +45,56 @@ $(document).ready(function () {
         }
     }
 
-    //Anchor scroll
-    $(".c_toggle").click(function () {
-        if ($(this).hasClass("active")) {
-            removeFixedBodyModal();
-            $(".c_toggle").removeClass("active");
-            $(".c_menu").stop().slideToggle();
+    function menuToggle() {
+        const isClose = drawerFlag === "close";
+        $("body").toggleClass("is_menu_open", isClose);
+        drawerFlag = isClose ? "open" : "close";
+
+        if (drawerFlag === "open") {
+            $(".l_header_fixed__inner").scrollTop(0);
+            backfaceFixed(true);
         } else {
-            addFixedBodyModal()
-            $(this).toggleClass("active");
-            $(".c_menu").stop().slideToggle("fast");
+            $(".js_gnavi_sub").removeAttr("style");
+            backfaceFixed(false);
+        }
+    }
+
+    hambugerButton.on("click", menuToggle);
+    $(".js_submenu").on("click", function (e) {
+        if (window.innerWidth <= spBreakPoint) {
+            e.preventDefault();
+        }
+        if (window.innerWidth <= spBreakPoint) {
+            $(this).find(".has_child").toggleClass("is_actived");
+            $(this).find(".js_gnavi_sub").slideToggle(500);
+        } else {
+            $(this).find(".has_child").removeClass("is_actived");
+            $(this).find(".js_gnavi_sub").removeAttr("style");
         }
     });
-
     // scroll
     $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
             $(".c_totop").css("transform", "translateY(0)");
-            $(".c_header").addClass("active");
-            $(".c_header__custom").addClass("active");
-            $(".c_header__bg").addClass("active");
         } else {
             $(".c_totop").removeAttr("style");
-            $(".c_header").removeClass("active");
-            $(".c_header__custom").removeClass("active");
-            $(".c_header__bg").removeClass("active");
         }
     });
 
     $(window).bind("load resize", function () {
-        if ($(window).width() > 767) {
-            $(".c_menu").removeAttr("style");
-            $(".c_toggle").removeClass("active");
-        } else {
-            $(".over").addClass("flag");
-        }
-
         if ($(this).scrollTop() > 100) {
             $(".c_totop").css("transform", "translateY(0)");
-            $(".c_header").addClass("active");
-            $(".c_header__custom").addClass("active");
-            $(".c_header__bg").addClass("active");
         } else {
             $(".c_totop").removeAttr("style");
-            $(".c_header").removeClass("active");
-            $(".c_header__custom").removeClass("active");
-            $(".c_header__bg").removeClass("active");
+        }
+
+        if (window.innerWidth > spBreakPoint) {
+            if ($("body").hasClass("is_menu_open")) {
+                hambugerButton.trigger("click");
+            }
+            if ($(".js_submenu .has_child").hasClass("is_actived")) {
+                $(".js_submenu").trigger("click");
+            }
         }
     });
-
-    
 });
-
-
-
