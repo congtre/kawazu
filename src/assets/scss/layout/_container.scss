@@ -26,6 +26,8 @@ layout > container
 }
 
 .l_main {
+    margin-top: 70px;
+
     @include mq(ld) {
         width: min(calc(100vw - 175px), calc(1676 / 1920 * 100vw));
         margin-left: auto;

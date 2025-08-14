@@ -55,28 +55,30 @@ component > card
             position: relative;
             top: 3px;
             display: inline-block;
-            width: 19px;
-            height: 19px;
-            margin-right: 5px;
+            width: 16px;
+            height: 16px;
             background: url('../images/common/icon_circle_arrow01.png');
             background-size: contain;
             background-repeat: no-repeat;
+            margin-right: 8px;
 
             @include mq(md) {
                 top: 0;
                 margin-right: 10px;
+                width: 19px;
+                height: 19px;
             }
         }
     }
 
     &__catch {
-        padding-inline: 10px;
-        font-weight: 500;
         font-feature-settings: 'palt';
-        line-height: calc(28 / 16);
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
+        line-height: calc(48 / 28);
+        margin-top: 8px;
 
         @include mq(md) {
+            padding-inline: 14px;
             margin-top: 15px;
         }
     }
@@ -85,8 +87,16 @@ component > card
 .c_card_news {
     display: flex;
     align-items: center;
-    padding-block: 11px;
-    gap: 25px;
+    padding-top: 6px;
+    padding-bottom: 3px;
+    flex-wrap: wrap;
+    column-gap: 4px;
+
+    @include mq(md) {
+        padding-block: 11px;
+        gap: 25px;
+        flex-wrap: nowrap;
+    }
 
     &__tag {
         font-size: rem(10);
@@ -96,6 +106,8 @@ component > card
         display: flex;
         align-items: center;
         justify-content: center;
+        min-width: 58px;
+        height: 15px;
 
         @include mq(md) {
             font-size: rem(16);
@@ -127,6 +139,7 @@ component > card
         font-size: rem(12);
         letter-spacing: 0.08em;
         min-width: 95px;
+        color: #6e6e6e;
 
         @include mq(md) {
             font-size: rem(16);
@@ -136,6 +149,13 @@ component > card
     &__ttl {
         @extend %fz-18;
         letter-spacing: 0.08em;
+        flex-basis: 100%;
+        margin-top: -4px;
+
+        @include mq(md) {
+            margin-top: 0;
+            flex-basis: unset;
+        }
 
         span {
             display: -webkit-box;
