@@ -1,5 +1,5 @@
-@use "sass:math";
-@use "../global" as *;
+@use 'sass:math';
+@use '../global' as *;
 
 /*!
 component >   BREAD CRUMB
@@ -7,17 +7,15 @@ component >   BREAD CRUMB
 */
 
 .c_breadcrumb {
-    display: none;
-
+    margin-top: 20px;
     @include mq(md) {
-        display: block;
-        text-align: right;
         margin-top: 38px;
+        text-align: right;
     }
 
     span {
-        font-feature-settings: "palt";
+        font-feature-settings: 'palt';
         letter-spacing: 0.085em;
-        font-size: rem(16);
+        @extend %fz-16;
     }
 }

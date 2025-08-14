@@ -1,0 +1,41 @@
+@use '../../global' as *;
+
+.p_other {
+    &_main {
+        padding-bottom: 50px;
+        @include mq(md) {
+            padding-bottom: 100px;
+        }
+        > * + * {
+            margin-top: 30px;
+            @include mq(md) {
+                margin-top: 60px;
+            }
+        }
+        .l_container {
+            > * + * {
+                margin-top: 30px;
+            }
+        }
+    }
+    &_sec01 {
+        position: relative;
+        padding: 50px 0;
+        background: linear-gradient(
+            90deg,
+            rgba(213, 248, 255, 1) 0%,
+            rgba(230, 255, 237, 1) 100%
+        );
+        @include mq(md) {
+            padding: 70px 0;
+        }
+    }
+    &_sec02 {
+        position: relative;
+        padding: 50px 0;
+        background-color: #f3f3f3;
+        @include mq(md) {
+            padding: 70px 0;
+        }
+    }
+}
