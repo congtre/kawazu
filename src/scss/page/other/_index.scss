@@ -1,0 +1,61 @@
+@use '../../global' as *;
+@use '../../component';
+
+.p_other {
+    padding-bottom: 30px;
+    @include mq(md) {
+        padding-bottom: 67px;
+    }
+    .c_page_hero {
+        @include mq(md) {
+            padding-top: 52px;
+            padding-bottom: 38px;
+        }
+    }
+    .c_breadcrumb {
+        margin-bottom: 30px;
+    }
+    &_main {
+        .l_container {
+            > * + * {
+                margin-top: 28px;
+                @include mq(md) {
+                    margin-top: 32px;
+                }
+            }
+            > p {
+                font-size: rem(14);
+                line-height: calc(25 / 14);
+                letter-spacing: 0.04em;
+                font-feature-settings: 'palt';
+                font-weight: var(--base-font-weight);
+
+                @include mq(md) {
+                    font-size: rem(18);
+                    line-height: calc(32 / 18);
+                }
+            }
+            p {
+                &:empty {
+                    margin: 0;
+                    min-height: 28px;
+                    @include mq(md) {
+                        min-height: 32px;
+                    }
+                }
+                a {
+                    color: #0a67ad;
+                    text-decoration: underline;
+                    text-underline-offset: 3px;
+                    @include mq(md) {
+                        transition: all 0.5s;
+                        &:hover {
+                            opacity: 0.7;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

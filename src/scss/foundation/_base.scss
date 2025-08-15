@@ -1,0 +1,82 @@
+@use "../global" as *;
+
+/*!
+foundation > base
+------------------------------
+*/
+html {
+    scrollbar-color: #064e90 #eee;
+    scrollbar-width: thin;
+}
+
+body {
+    line-height: 2;
+    font-size: rem(14);
+    font-weight: 500;
+    color: #555;
+    font-family: var(--base-font-gothic);
+    letter-spacing: 0.05em;
+    line-height: calc(32 / 16);
+
+    @include mq(md) {
+        font-size: rem(16);
+    }
+}
+
+body.overflow_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+.body-wrapper {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+        opacity: 1;
+
+        @include mq(md) {
+            opacity: 0.8;
+        }
+    }
+
+    @include mq(md) {
+        &[href^="tel:"] {
+            pointer-events: none;
+        }
+    }
+}
+
+.pc {
+    display: none !important;
+
+    @include mq(md) {
+        display: block !important;
+    }
+}
+
+
+.sp {
+    display: block !important;
+
+    @include mq(md) {
+        display: none !important;
+    }
+}
+
+.u_inline_block {
+    display: inline-block;
+}

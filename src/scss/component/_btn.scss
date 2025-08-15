@@ -1,0 +1,186 @@
+@use 'sass:math';
+@use '../global' as *;
+
+/*!
+component > btn
+------------------------------
+*/
+.c_totop {
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+    display: block;
+    font-size: 0;
+    width: 45px;
+    height: 45px;
+    transform: translateY(150px);
+    transition: 0.5s;
+    font-size: 0;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    z-index: 9;
+    background: #064e90;
+    border-radius: 40px;
+    border: 2px solid #fff;
+
+    @include mq(md) {
+        right: 60px;
+        bottom: 69px;
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+        border: 3px solid #fff;
+    }
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 11px;
+        content: '';
+        width: 12px;
+        height: 3px;
+        background: #fff;
+        transform: translateY(-50%) rotate(-45deg);
+        pointer-events: none;
+
+        @include mq(md) {
+            left: 15px;
+            width: 15px;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        right: 11px;
+        content: '';
+        width: 12px;
+        height: 3px;
+        transform: translateY(-50%) rotate(45deg);
+        pointer-events: none;
+        background: #fff;
+
+        @include mq(md) {
+            right: 15px;
+            width: 15px;
+        }
+    }
+}
+
+.c_btn {
+    display: inline-block;
+    background-color: #fff;
+
+    &:hover {
+        opacity: 1;
+
+        span,
+        .wp-block-button__link {
+            opacity: 0.8;
+        }
+    }
+
+    span,
+    .wp-block-button__link {
+        font-size: rem(14);
+        letter-spacing: 0.08em;
+        font-feature-settings: 'palt';
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        transition: opacity 0.5s ease;
+
+        @include mq(md) {
+            font-size: rem(18);
+            line-height: calc(24 / 18);
+        }
+    }
+
+    &.c_btn01 {
+        span,
+        .wp-block-button__link {
+            gap: 10px;
+            padding: 0;
+            color: #555;
+            background-color: transparent;
+
+            &::after {
+                content: '';
+                display: inline-block;
+                width: calc(33px / 2);
+                height: calc(33px / 2);
+                background-image: url('../images/common/icon_circle_arrow02.webp');
+                background-size: contain;
+                background-position: center;
+
+                @include mq(md) {
+                    width: 19px;
+                    height: 19px;
+                }
+            }
+        }
+    }
+
+    &.c_btn02 {
+        position: relative;
+        display: block;
+
+        span,
+        .wp-block-button__link {
+            color: #fff;
+            font-weight: 700;
+            background: linear-gradient(
+                to right,
+                rgb(77, 190, 224) 0%,
+                rgb(44, 147, 199) 49%,
+                rgb(10, 103, 173) 100%
+            );
+            padding-left: 35px;
+            padding-block: 8px;
+            padding-right: 30px;
+            font-feature-settings: 'palt' 0;
+            gap: 15px;
+            display: flex;
+            justify-content: center;
+
+            @include mq(md) {
+                justify-content: flex-start;
+                padding-left: 15px;
+                padding-right: 50px;
+                padding-block: 13px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 16px;
+                height: 16px;
+                background-image: url('../images/common/icon_circle_arrow03.webp');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                @include mq(md) {
+                    right: 15px;
+                    width: 19px;
+                    height: 19px;
+                }
+            }
+        }
+    }
+    .wp-block-button__link {
+        border-radius: 0;
+    }
+}
+
+.c_btn_groups {
+    margin-inline: -3px;
+
+    & > .c_btn {
+        margin-inline: 3px;
+    }
+}

@@ -1,0 +1,21 @@
+@use 'sass:math';
+@use '../global' as *;
+
+/*!
+component >   BREAD CRUMB
+------------------------------
+*/
+
+.c_breadcrumb {
+    margin-top: 20px;
+    @include mq(md) {
+        margin-top: 38px;
+        text-align: right;
+    }
+
+    span {
+        font-feature-settings: 'palt';
+        letter-spacing: 0.085em;
+        @extend %fz-16;
+    }
+}

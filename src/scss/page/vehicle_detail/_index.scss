@@ -1,0 +1,383 @@
+@use '../../global' as *;
+
+.p_vehicle_detail {
+    &_main {
+        position: relative;
+        margin-top: 30px;
+        padding: 50px 0 0;
+        background: linear-gradient(
+            90deg,
+            rgba(213, 248, 255, 1) 0%,
+            rgba(230, 255, 237, 1) 100%
+        );
+        overflow: hidden;
+        @include mq(md) {
+            padding: 64px 0 0;
+        }
+        .c_heading_h2 {
+            margin-bottom: 30px;
+            @include mq(md) {
+                margin-bottom: 46px;
+            }
+        }
+    }
+    &_flex {
+        @include mq(md) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &_box {
+        @include mq(md) {
+            width: calc(504 / 1210 * 100%);
+        }
+        .c_heading_h3bg {
+            margin-bottom: 25px;
+            @include mq(md) {
+                margin-bottom: 34px;
+            }
+        }
+        .c_heading_h3 {
+            margin-bottom: 15px;
+            @include mq(md) {
+                margin-bottom: 26px;
+            }
+        }
+        .c_tbl {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            @include mq(md) {
+                margin-bottom: 0;
+                padding-top: 44px;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                z-index: -1;
+                transform: translateX(-50%);
+                width: 2000vw;
+                height: 300vh;
+                background-color: #fff;
+            }
+        }
+    }
+    &_txt {
+        margin-bottom: 30px;
+        @extend %fz-18;
+        font-weight: 500;
+        line-height: calc(32 / 18);
+        letter-spacing: 0.04em;
+        font-feature-settings: 'palt';
+        @include mq(md) {
+            margin-bottom: 50px;
+        }
+    }
+    &_slide {
+        position: relative;
+        z-index: 1;
+        @include mq(md) {
+            width: calc(660 / 1210 * 100%);
+        }
+        &.none_slide {
+            .p_vehicle_detail_slide__nav {
+                display: none;
+            }
+        }
+        &__for {
+            position: relative;
+            margin-bottom: 10px;
+            border-radius: 20px 0 20px 0;
+            overflow: hidden;
+            &_item {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                aspect-ratio: 660/470;
+                background-color: #b3b3b3;
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                iframe {
+                    width: 100%;
+                }
+                video {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        &__nav {
+            &_inner {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px 0;
+            }
+            &_item {
+                position: relative;
+                aspect-ratio: 158/112;
+                background-color: #b3b3b3;
+                border-radius: 10px 0 10px 0;
+                overflow: hidden;
+                @include mq(md) {
+                    cursor: pointer;
+                    transition: all 0.5s;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .youtube {
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 1;
+                        width: 48px;
+                        height: 48px;
+                        background: url(../images/common/icon_youtube.webp)
+                            no-repeat center/contain;
+                    }
+                }
+                .mp4 {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    height: 100%;
+                    background-color: #aad96b;
+                    font-size: 0;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 1;
+                        width: 48px;
+                        height: 48px;
+                        background: url(../images/common/icon_mp4.webp)
+                            no-repeat center/contain;
+                    }
+                }
+            }
+        }
+        &__btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 1;
+            width: 36px;
+            height: 36px;
+            background-color: #fff;
+            border-radius: 100%;
+            background-color: rgba(255, 255, 255, 0.28);
+            @include mq(md) {
+                cursor: pointer;
+                transition: all 0.5s;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: calc(50% + 1px);
+                transform: translate(-50%, -50%);
+                width: 8px;
+                height: 15px;
+                background: url(../images/common/icon_arrow02.webp) no-repeat
+                    center/contain;
+            }
+            &.prev {
+                right: 58px;
+                transform: scaleX(-1);
+            }
+        }
+    }
+    &_free {
+        position: relative;
+        z-index: 1;
+        padding: 30px 0;
+        @include mq(md) {
+            padding: 48px 0;
+        }
+    }
+    &_other {
+        position: relative;
+        padding: 0 0 80px;
+        background-color: #f3f3f3;
+        @include mq(md) {
+            padding: 0 0 52px;
+        }
+        &__en {
+            display: inline-block;
+            margin-top: -4px;
+            background-image: linear-gradient(90deg, #4dbee0 0, #aad96b 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: var(--font-en);
+            font-size: rem(40);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            opacity: 0.18;
+            transform: skewX(-10deg);
+            @include mq(md) {
+                margin-top: -11px;
+                font-size: rem(84.36);
+            }
+        }
+        &__main {
+            @include mq(md) {
+                display: flex;
+                margin-top: -20px;
+            }
+        }
+        &__head {
+            margin-bottom: 30px;
+            flex-shrink: 0;
+            @include mq(md) {
+                margin-right: 47px;
+                margin-bottom: 0;
+                padding-top: 46px;
+            }
+        }
+        &__ttl {
+            margin-bottom: 2px;
+            display: inline-block;
+            background-image: linear-gradient(90deg, #4dbee0 0, #0a67ad 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            color: transparent;
+            @extend %fz-34;
+            font-weight: 700;
+            font-feature-settings: 'palt';
+            line-height: calc(46 / 34);
+            letter-spacing: 0.12em;
+        }
+        &__sub {
+            margin-bottom: 20px;
+            @extend %fz-26;
+            font-weight: 700;
+            line-height: calc(38 / 26);
+            letter-spacing: 0.18em;
+            @include mq(md) {
+                margin-bottom: 26px;
+            }
+        }
+        .c_card_groups {
+            @include mq(md) {
+                width: 100%;
+                gap: 10px;
+            }
+        }
+        .c_card {
+            @include mq(md) {
+                margin-bottom: 0;
+            }
+            &__title {
+                padding: 0;
+                @extend %fz-20;
+            }
+        }
+        &__btn {
+            display: none;
+            @include mq(md) {
+                display: block;
+            }
+        }
+        &__bot {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 0;
+            @include mq(md) {
+                display: none;
+            }
+            .c_btn {
+                width: 230px;
+            }
+        }
+    }
+}
+.c_tbl {
+    border-collapse: collapse;
+    width: 100% !important;
+    font-size: rem(14);
+    line-height: calc(50 / 28);
+    @include mq(md) {
+        border-spacing: 13px;
+        font-size: rem(18);
+        line-height: calc(30 / 18);
+    }
+    &__row {
+        display: flex;
+        gap: 10px;
+        @include mq(md) {
+            gap: 20px;
+        }
+    }
+    &__head,
+    &__body {
+        padding-block: 8px;
+        border-bottom: 1px solid #c3c3c3;
+        @extend %fz-18;
+        font-feature-settings: 'palt';
+        letter-spacing: 0.055em;
+        @include mq(md) {
+            padding-block: 11px;
+        }
+    }
+    &__head {
+        position: relative;
+        flex-shrink: 0;
+        width: 100px;
+        padding-left: 20px;
+        font-weight: 700;
+        @include mq(md) {
+            width: 139px;
+            padding-left: 35px;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 17px;
+            left: 5px;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(to right, #4dbee0 20%, #aad96b);
+            @include mq(md) {
+                width: 7px;
+                height: 7px;
+                top: 22px;
+                left: 9%;
+            }
+        }
+    }
+    &__body {
+        width: 100%;
+    }
+}
