@@ -239,6 +239,12 @@ component > Other
     }
 
     .c_inpage_nav {
+        flex: 1 1 calc(50% - 8px);
+        min-width: fit-content;
+        @include mq(md) {
+            width: 100px;
+            flex: initial;
+        }
         .wp-block-button__link {
             display: inline-block;
             background: linear-gradient(
@@ -252,12 +258,8 @@ component > Other
             border-radius: 0;
             color: #555;
             position: relative;
-            flex: 1 1 calc(50% - 8px);
-            min-width: fit-content;
 
             @include mq(md) {
-                width: 100px;
-                flex: initial;
             }
 
             &::before {
@@ -408,6 +410,65 @@ component > Other
         > * + * {
             margin-top: 20px;
         }
+    }
+}
+
+.c_tbl {
+    border-collapse: collapse;
+    width: 100% !important;
+    font-size: rem(14);
+    line-height: calc(50 / 28);
+    @include mq(md) {
+        border-spacing: 13px;
+        font-size: rem(18);
+        line-height: calc(30 / 18);
+    }
+    &__row {
+        display: flex;
+        gap: 10px;
+        @include mq(md) {
+            gap: 20px;
+        }
+    }
+    &__head,
+    &__body {
+        padding-block: 8px;
+        border-bottom: 1px solid #c3c3c3;
+        @extend %fz-18;
+        font-feature-settings: 'palt';
+        letter-spacing: 0.055em;
+        @include mq(md) {
+            padding-block: 11px;
+        }
+    }
+    &__head {
+        position: relative;
+        flex-shrink: 0;
+        width: 100px;
+        padding-left: 20px;
+        font-weight: 700;
+        @include mq(md) {
+            width: 139px;
+            padding-left: 35px;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 17px;
+            left: 5px;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(to right, #4dbee0 20%, #aad96b);
+            @include mq(md) {
+                width: 7px;
+                height: 7px;
+                top: 22px;
+                left: 9%;
+            }
+        }
+    }
+    &__body {
+        width: 100%;
     }
 }
 

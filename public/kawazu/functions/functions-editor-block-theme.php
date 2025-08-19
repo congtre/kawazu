@@ -21,14 +21,14 @@ function written_enqueue_block_variations() {
             'templateUrl' => get_stylesheet_directory_uri(),
         )
     );
-    wp_enqueue_style( 'custom-editor-css', get_parent_theme_file_uri( '/assets/js/block-theme/editor.css' ));
+    wp_enqueue_style( 'custom-editor-css', get_parent_theme_file_uri( '/assets/css/editor.css' ));
 }
 add_action( 'enqueue_block_editor_assets', 'written_enqueue_block_variations' );
 
-function mytheme_block_styles() {
-	wp_enqueue_style( 'other', get_parent_theme_file_uri( '/assets/css/other.css' ));
-}
-add_action( 'enqueue_block_assets', 'mytheme_block_styles' );
+// function mytheme_block_styles() {
+// 	wp_enqueue_style( 'other', get_parent_theme_file_uri( '/assets/css/editor.css' ));
+// }
+// add_action( 'enqueue_block_assets', 'mytheme_block_styles' );
 
 add_filter( 'block_categories_all' , function( $categories ) {
 	array_unshift( $categories, array(

@@ -51,7 +51,7 @@
                 <div class="c_heading_h2" data-aos="fade-up">
                     <span class="u_fs_40 u_f_en c_heading_h2__numb"><?php echo str_pad($index + 1, 2, '0', STR_PAD_LEFT); ?></span>
                     <h2 class="u_fs_40 c_heading_h2__mttl"><?php echo esc_html( $term->name ); ?></h2>
-                    <span class="u_f_en c_heading_h2__en"><?php echo get_field( 'vehicle_cate_en', $term->taxonomy . '_' . $term->term_id ); ?></span>
+                    <span class="u_f_en c_heading_h2__en">Vehicle introduction category</span>
                 </div>
                 <h3 class="c_heading_h3bg c_heading_bg01" data-aos="fade-up">
                     <span class="c_heading_h3bg__main">積載物</span>

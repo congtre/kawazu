@@ -106,6 +106,10 @@ function theme_sources() {
         wp_enqueue_script('vehicle_detail-js', get_stylesheet_directory_uri().'/assets/js/vehicle_detail.js', array(), time(), 1);
     }
 
+    if (is_page()) {
+        wp_enqueue_style('other-css', get_stylesheet_directory_uri().'/assets/css/other.css', array(), time());
+    }
+
     if (is_404()) {
         wp_enqueue_style('p404-css', get_stylesheet_directory_uri().'/assets/css/p404.css', array(), time());
     }

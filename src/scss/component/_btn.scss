@@ -125,6 +125,7 @@ component > btn
     &.c_btn02 {
         position: relative;
         display: block;
+        width: 100%;
 
         span,
         .wp-block-button__link {
@@ -177,8 +178,12 @@ component > btn
     }
 }
 
-.c_btn_groups {
+.c_buttons_group {
+    width: 100%;
     margin-inline: -3px;
+    @include mq(md) {
+        width: auto;
+    }
 
     & > .c_btn {
         margin-inline: 3px;

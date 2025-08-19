@@ -10,9 +10,9 @@ $(function () {
         spaceBetween: 10,
         effect: 'fade',
         loop: true,
-        speed: 3000,
+        speed: 4000,
         autoplay: {
-            delay: 1000,
+            delay: 600,
         },
         navigation: {
             nextEl: '.p_vehicle_detail_slide__btn.next',
@@ -22,4 +22,12 @@ $(function () {
             swiper: swiperNav,
         },
     });
+
+    $('.p_vehicle_detail_slide__for, .p_vehicle_detail_slide__nav')
+        .on('mouseenter', function () {
+            swiperFor.autoplay.stop();
+        })
+        .on('mouseleave', function () {
+            swiperFor.autoplay.start();
+        });
 });

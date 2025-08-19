@@ -33,8 +33,7 @@ $term_name = $terms[0]->name;
             <div class="c_heading_h2" data-aos="fade-up">
                 <span class="u_fs_40 u_f_en c_heading_h2__numb"><?php echo get_post_order_number(); ?></span>
                 <h2 class="u_fs_40 c_heading_h2__mttl"><?php the_title(); ?></h2>
-                <!-- <span class="u_f_en c_heading_h2__en"><?php echo get_field( 'vehicle_cate_en', 'term_' . $term_id ); ?></span> -->
-                <span class="u_f_en c_heading_h2__en">Vehicle introduction category</span>
+                <span class="u_f_en c_heading_h2__en"><?php echo get_field( 'vehicle_cate_en', 'term_' . $term_id ); ?></span>
             </div>
             <div class="p_vehicle_detail_flex">
                 <div class="p_vehicle_detail_box" data-aos="fade-up">

@@ -69,6 +69,17 @@ component > title
             display: block;
         }
 
+        > div {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 11px 10px;
+
+            @include mq(md) {
+                display: block;
+            }
+        }
+
         & > * {
             line-height: calc(62 / 52);
 
