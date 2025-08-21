@@ -129,7 +129,7 @@ component > Other
 .wp-block-flexible-table-block-table {
     table {
         border-collapse: collapse;
-        width: 100% !important;
+        width: 100%;
         font-size: rem(14);
         line-height: calc(50 / 28);
 
@@ -142,28 +142,28 @@ component > Other
 
     td,
     th {
-        padding-block: 10px !important;
-        border-color: transparent !important;
+        padding-block: 10px;
+        border-color: #fff !important;
         border-bottom: 1px solid #c3c3c3 !important;
         font-feature-settings: 'palt';
         letter-spacing: 0.055em;
         vertical-align: top !important;
-        background-color: transparent !important;
+        background-color: #fff !important;
 
         @include mq(md) {
-            padding-block: 11px !important;
+            padding-block: 11px;
         }
     }
 
     tr {
         & > *:first-child {
-            width: 120px;
+            // width: 120px;
             font-weight: 700;
             padding-left: 18px !important;
             position: relative;
 
             @include mq(md) {
-                width: 139px;
+                // width: 139px;
                 padding-left: 35px !important;
             }
 
@@ -179,12 +179,12 @@ component > Other
                     width: 7px;
                     height: 7px;
                     top: 22px;
-                    left: 9%;
+                    left: 12px;
                 }
             }
         }
 
-        & > *:last-child {
+        & > *:not(:first-child) {
             position: relative;
             font-weight: 500;
 
@@ -206,21 +206,18 @@ component > Other
             }
         }
     }
-    &.sp_vertical {
-        @media screen and (max-width: 767px) {
-            table {
-                tr {
-                    > * {
-                        display: block;
-                        width: 100%;
-                        &:first-child {
-                            padding-bottom: 0 !important;
-                            border-bottom: none !important;
-                        }
-                        &:last-child {
-                            padding-top: 5px !important;
-                            padding-left: 18px !important;
-                        }
+    @media screen and (max-width: 767px) {
+        .is-stacked-on-mobile {
+            tr {
+                > *:first-child {
+                    padding-bottom: 0 !important;
+                    border-bottom: none !important;
+                }
+                > *:not(:first-child) {
+                    padding-top: 5px !important;
+                    padding-left: 18px !important;
+                    &::before {
+                        display: none;
                     }
                 }
             }
