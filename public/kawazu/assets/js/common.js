@@ -122,3 +122,13 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.l_header_fixed__banner').addClass('active');
+        } else {
+            $('.l_header_fixed__banner').removeClass('active');
+        }
+    });
+});

@@ -37,34 +37,35 @@
                 </h2>
 
                 <div class="p_top_news__more">
-                    <a href="" class="c_btn c_btn01 p_top_news__more_target"><span>記事一覧へ</span></a>
+                    <a href="<?php echo esc_url(home_url()); ?>/news" class="c_btn c_btn01 p_top_news__more_target"><span>記事一覧へ</span></a>
                 </div>
             </div>
 
             <div class="p_top_news__body" data-aos="fade-up">
+                <?php
+                    $args = array(
+                        'post_type'      => 'news',
+                        'posts_per_page' => 3,
+                        'post_status'    => 'publish',
+                        'orderby'        => 'date',
+                        'order'          => 'DESC'
+                    );
+
+                    $query = new WP_Query( $args );
+                ?>
+                <?php if ( $query->have_posts() ) : ?>
                 <ul class="p_top_news__list">
+                <?php while ( $query->have_posts() ) : $query->the_post(); ?>
                     <li class="p_top_news__list_item">
-                        <a href="" class="c_card_news">
-                            <span class="c_card_news__tag type01">お知らせ</span>
-                            <span class="c_card_news__date">0000.00.00</span>
-                            <h3 class="c_card_news__ttl"><span>ホームページをリニューアルいたしました。</span></h3>
+                        <a href="<?php the_permalink(); ?>" class="c_card_news">
+                            <span class="c_card_news__tag type01"><?php the_title(); ?></span>
+                            <span class="c_card_news__date"><?php echo get_the_date('Y.m.d'); ?></span>
+                            <h3 class="c_card_news__ttl"><span><?php the_title() ?></span></h3>
                         </a>
                     </li>
-                    <li class="p_top_news__list_item">
-                        <a href="" class="c_card_news">
-                            <span class="c_card_news__tag type01">お知らせ</span>
-                            <span class="c_card_news__date">0000.00.00</span>
-                            <h3 class="c_card_news__ttl"><span>新車として新たにトレーラーヘッドを導入いたしました。 </span></h3>
-                        </a>
-                    </li>
-                    <li class="p_top_news__list_item">
-                        <a href="" class="c_card_news">
-                            <span class="c_card_news__tag type02">ブログ</span>
-                            <span class="c_card_news__date">0000.00.00</span>
-                            <h3 class="c_card_news__ttl"><span>お祝いに沢山の胡蝶蘭を頂戴しました。ありがとうございました。</span></h3>
-                        </a>
-                    </li>
+                <?php endwhile; ?>
                 </ul>
+                <?php endif; ?>
             </div>
         </div>
     </section>

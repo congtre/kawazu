@@ -145,6 +145,10 @@ component > header
         visibility: visible;
     }
 
+    @media screen and (min-width: 1024px) and (max-height: 900px) {
+        padding-top: 1.5vh !important;
+    }
+
     &__inner {
         overflow-y: auto;
         overflow-x: clip;
@@ -154,22 +158,40 @@ component > header
 
         @include mq(ld) {
             padding-bottom: 20px;
-            padding-left: clamped(20, 35, 1024, 1900);
-            padding-right: clamped(0, 20, 1024, 1800);
+            padding-left: clamped(15, 35, 1600, 1900);
+            padding-right: clamped(15, 35, 1600, 1900);
+            overflow-y: visible;
         }
     }
 
     &__mlist {
         &_item {
+            position: relative;
             border-bottom: 1px solid #c3cdd5;
 
             @include mq(ld) {
                 border-bottom: 0;
+                transition: all 0.5s;
+                &:hover {
+                    .ja {
+                        color: #22b3dc;
+                    }
+                    .en {
+                        color: #bbe7f0;
+                    }
+                    &::before {
+                        opacity: 1;
+                    }
+                }
             }
 
             & + .l_header_fixed__mlist_item {
                 @include mq(ld) {
                     margin-top: 21px;
+                }
+
+                @media screen and (min-width: 1024px) and (max-height: 900px) and (min-height: 720px) {
+                    margin-top: 1.5vh !important;
                 }
             }
 
@@ -182,8 +204,7 @@ component > header
             }
 
             &.active {
-                @include mq(md) {
-                    position: relative;
+                @include mq(ld) {
                     .ja {
                         color: #22b3dc;
                     }
@@ -191,19 +212,21 @@ component > header
                         color: #bbe7f0;
                     }
                     &::before {
-                        content: '';
-                        position: absolute;
-                        top: 8px;
-                        left: -10px;
-                        width: 6px;
-                        height: 2px;
-                        background: linear-gradient(
-                            90deg,
-                            #4dbee0 0%,
-                            #0a67ad 100%
-                        );
+                        opacity: 1;
                     }
                 }
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: -10px;
+                width: 6px;
+                height: 2px;
+                background: linear-gradient(90deg, #4dbee0 0%, #0a67ad 100%);
+                opacity: 0;
+                transition: all 0.5s;
             }
         }
 
@@ -232,6 +255,7 @@ component > header
 
                 @include mq(md) {
                     font-size: clamped(16, 19, 1024, 1600);
+                    transition: all 0.5s;
                 }
             }
 
@@ -246,6 +270,15 @@ component > header
                 @include mq(md) {
                     margin-left: 2px;
                     margin-top: 8px;
+                    transition: all 0.5s;
+                }
+
+                @media screen and (min-width: 1024px) and (max-height: 722px) {
+                    display: none;
+                }
+
+                @media screen and (min-width: 1024px) and (max-height: 900px) {
+                    margin-top: 0.2vh !important;
                 }
             }
 
@@ -294,11 +327,23 @@ component > header
             margin-top: 31px;
         }
 
+        @media screen and (min-width: 1024px) and (max-height: 900px) {
+            margin-top: 2.5vh !important;
+        }
+
         &_item {
             line-height: 1.2;
 
             & + .l_header_fixed__slist_item {
                 margin-top: 23px;
+
+                @media screen and (min-width: 1024px) and (max-height: 900px) {
+                    margin-top: 1.5vh !important;
+                }
+
+                @media screen and (min-width: 1024px) and (max-height: 722px) {
+                    margin-top: 1.5vh !important;
+                }
 
                 @include mq(ld) {
                     margin-top: clamped(12, 21, 1024, 1800);
@@ -314,7 +359,7 @@ component > header
                 padding-left: 20px;
 
                 @include mq(md) {
-                    font-size: clamped(13, 17, 1400, 1800);
+                    font-size: clamped(12, 17, 1400, 1920);
                     line-height: 1.2;
                     padding-left: 14px;
                     letter-spacing: 0em;
@@ -346,11 +391,13 @@ component > header
         display: none;
 
         @include mq(ld) {
+            left: 0;
             display: initial;
             position: absolute;
             max-width: 326px;
             width: min(calc(326 / 940 * 100vh), calc(326 / 1920 * 100vw));
             border-radius: 20px 0 20px 0;
+            margin-left: clamped(15, 35, 1600, 1900);
         }
 
         img {
@@ -364,8 +411,17 @@ component > header
 
             @include mq(md) {
                 img {
-                    opacity: 0.8;
+                    opacity: 0.7;
                 }
+            }
+        }
+
+        &.active {
+            @include mq(md) {
+                width: calc(
+                    100% - clamped(15, 35, 1600, 1900) -
+                        clamped(15, 35, 1600, 1900)
+                );
             }
         }
     }

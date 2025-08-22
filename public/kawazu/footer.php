@@ -60,7 +60,7 @@
                                 <p class="ttl">三原営業所</p>
                                 <div class="content">
                                     <p class="addr">〒723-0132 広島県三原市長谷五丁目6番22号<span class="link">[<a href="https://maps.app.goo.gl/Uh4uqpYEJQ5o2oxG9" target="_blank" rel="noreferrer">MAP</a>]</span></p>
-                                    <p class="tel">TEL 000-000-0000 / FAX 000-000-0000</p>
+                                    <!-- <p class="tel">TEL 000-000-0000 / FAX 000-000-0000</p> -->
                                 </div>
                             </li>
                         </ul>
@@ -173,9 +173,7 @@
                 </div>
 
                 <div class="c_mapsec">
-                    <figure class="c_mapsec__content">
-                        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/common/img_mapdumy.webp" alt="">
-                    </figure>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d736590.9953221495!2d130.85706354798555!3d34.389752180765335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3543b827282c0001%3A0x4597887ce7d0e3bc!2z5rKz5rSl55Sj5qWtKOaciSkg5YyX5Lmd5bee5Za25qWt5omA!5e0!3m2!1sja!2s!4v1755843628940!5m2!1sja!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <div class="c_copyright">

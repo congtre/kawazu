@@ -568,10 +568,27 @@ component > footer
 }
 
 .c_mapsec {
+    position: relative;
     height: 225px;
+    overflow: hidden;
 
     @include mq(md) {
         height: 450px;
+    }
+
+    iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 240%;
+        pointer-events: none;
+        @include mq(md) {
+            left: 35%;
+            width: 150%;
+            height: 170%;
+        }
     }
 
     &__content {
@@ -587,6 +604,7 @@ component > footer
 }
 
 .c_copyright {
+    position: relative;
     background: linear-gradient(
         to right,
         rgb(77, 190, 224) 0%,
