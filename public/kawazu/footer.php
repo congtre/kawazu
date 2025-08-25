@@ -19,7 +19,7 @@
                             </p>
                         </div>
                         <div class="c_contact__button">
-                            <a href="" class="c_contact__link">
+                            <a href="<?php echo esc_url(home_url()); ?>/for_message" class="c_contact__link">
                                 <span class="c_contact__link_icon">
                                     <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/common/icon_mess02.webp" alt="">
                                 </span>
@@ -59,7 +59,7 @@
                             <li class="c_childs__item">
                                 <p class="ttl">三原営業所</p>
                                 <div class="content">
-                                    <p class="addr">〒723-0132 広島県三原市長谷五丁目6番22号<span class="link">[<a href="https://maps.app.goo.gl/Uh4uqpYEJQ5o2oxG9" target="_blank" rel="noreferrer">MAP</a>]</span></p>
+                                    <p class="addr">〒723-0132 広島県三原市長谷五丁目6番22号<span class="link">[<a href="https://maps.app.goo.gl/Uh4uqpYEJQ5o2oxG9" target="_blank" rel="noopener noreferrer">MAP</a>]</span></p>
                                     <!-- <p class="tel">TEL 000-000-0000 / FAX 000-000-0000</p> -->
                                 </div>
                             </li>

@@ -56,14 +56,18 @@
                 <?php if ( $query->have_posts() ) : ?>
                 <ul class="p_top_news__list">
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                    <?php
+                        $terms_news = get_the_terms(get_the_ID(), 'news-cat');
+                        $term_name = $terms_news[0]->name;
+                    ?>
                     <li class="p_top_news__list_item">
                         <a href="<?php the_permalink(); ?>" class="c_card_news">
-                            <span class="c_card_news__tag type01"><?php the_title(); ?></span>
+                            <span class="c_card_news__tag <?php echo $term_name !== 'ブログ' ? 'type01' : 'type02'; ?>"><?php echo $term_name; ?></span>
                             <span class="c_card_news__date"><?php echo get_the_date('Y.m.d'); ?></span>
                             <h3 class="c_card_news__ttl"><span><?php the_title() ?></span></h3>
                         </a>
                     </li>
-                <?php endwhile; ?>
+                <?php endwhile; wp_reset_postdata(); ?>
                 </ul>
                 <?php endif; ?>
             </div>
@@ -231,7 +235,7 @@
                             輸送を通して地域産業を支え、これからも経験と専門知識を基に経済の基盤となるべく、世の中の変化に素早く対応し、ニーズに合わせた新しい取り組みに挑戦していきます。
                         </p>
                         <div class="p_top_company__btn">
-                            <a href="" class="c_btn c_btn01">
+                            <a href="<?php echo esc_url(home_url()); ?>/company" class="c_btn c_btn01">
                                 <span>詳しく見る</span>
                             </a>
                         </div>
@@ -241,7 +245,7 @@
         </div>
 
         <div class="p_top_company__list">
-            <a href="" class="p_top_company__card color01" data-aos="fade-up">
+            <a href="<?php echo esc_url(home_url()); ?>/industry" class="p_top_company__card color01" data-aos="fade-up">
                 <picture class="p_top_company__card_thumb">
                     <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_company_card01_sp.webp">
                     <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_company_card01.webp" alt="">
@@ -253,7 +257,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="p_top_company__card color02" data-aos="fade-up">
+            <a href="<?php echo esc_url(home_url()); ?>/environmental_activities" class="p_top_company__card color02" data-aos="fade-up">
                 <picture class="p_top_company__card_thumb">
                     <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_company_card02_sp.webp">
                     <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_company_card02.webp" alt="">
@@ -265,7 +269,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="p_top_company__card color03" data-aos="fade-up">
+            <a href="<?php echo esc_url(home_url()); ?>/safety" class="p_top_company__card color03" data-aos="fade-up">
                 <picture class="p_top_company__card_thumb">
                     <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_company_card03_sp.webp">
                     <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_company_card03.webp" alt="">
@@ -282,7 +286,7 @@
 
     <section class="p_top_recruit">
         <div class="p_top_recruit__in l_container">
-            <a href="" class="p_top_recruit__link" data-aos="fade-up">
+            <a href="https://www.kwz-jp.com/recruit_page/" target="_blank" rel="noopener noreferrer" class="p_top_recruit__link" data-aos="fade-up">
                 <picture class="p_top_recruit__link_thumb">
                     <source media="(max-width: 767px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_recruitt_mv_sp.webp">
                     <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/top/img_recruitt_mv.webp" alt="">
