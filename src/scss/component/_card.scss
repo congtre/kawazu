@@ -57,6 +57,7 @@ component > card
     }
 
     &__title {
+        display: flex;
         margin-top: 12px;
         padding-inline: 4px;
         font-size: rem(20);
@@ -75,8 +76,9 @@ component > card
         &::before {
             content: '';
             position: relative;
-            top: 1px;
+            top: 11px;
             display: inline-block;
+            flex-shrink: 0;
             width: 16px;
             height: 16px;
             background: url('../images/common/icon_circle_arrow01.webp');
@@ -85,7 +87,7 @@ component > card
             margin-right: 8px;
 
             @include mq(md) {
-                top: 0;
+                top: 8px;
                 margin-right: 10px;
                 width: 19px;
                 height: 19px;
