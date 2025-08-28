@@ -10,9 +10,9 @@ $(function () {
         spaceBetween: 10,
         effect: 'fade',
         loop: true,
-        speed: 4000,
+        speed: 1500,
         autoplay: {
-            delay: 600,
+            delay: 1500,
         },
         navigation: {
             nextEl: '.p_vehicle_detail_slide__btn.next',
@@ -21,13 +21,27 @@ $(function () {
         thumbs: {
             swiper: swiperNav,
         },
+        on: {
+            transitionEnd: function () {
+                const activeSlide = $(this.slides[this.activeIndex]);
+                if (activeSlide.find('video, iframe').length > 0) {
+                    this.autoplay.stop();
+                } else {
+                    this.autoplay.start();
+                }
+            },
+        },
     });
 
-    $('.p_vehicle_detail_slide__for, .p_vehicle_detail_slide__nav')
-        .on('mouseenter', function () {
-            swiperFor.autoplay.stop();
-        })
-        .on('mouseleave', function () {
-            swiperFor.autoplay.start();
-        });
+    // $('.p_vehicle_detail_slide__for, .p_vehicle_detail_slide__nav')
+    //     .on('mouseenter', function () {
+    //         const activeSlide = $(swiperFor.slides[swiperFor.activeIndex]);
+
+    //         if (activeSlide.find('video, iframe').length > 0) {
+    //             swiperFor.autoplay.stop();
+    //         }
+    //     })
+    //     .on('mouseleave', function () {
+    //         swiperFor.autoplay.start();
+    //     });
 });

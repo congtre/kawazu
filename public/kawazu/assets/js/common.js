@@ -65,7 +65,6 @@ $(document).ready(function () {
         if (window.innerWidth <= spBreakPoint) {
             $(this).find('.has_child').toggleClass('is_actived');
             $(this).find('.js_gnavi_sub').stop().slideToggle(500);
-            console.log(111);
         } else {
             $(this).find('.has_child').removeClass('is_actived');
             $(this).find('.js_gnavi_sub').removeAttr('style');
@@ -115,7 +114,6 @@ $(document).ready(function () {
                 $(this).parent().addClass('active');
             }
         } else {
-            console.log(111);
             if (linkSlug === currentSlugPrev) {
                 $(this).parent().addClass('active');
             }
